@@ -1,0 +1,25 @@
+body{
+  background-color: burlywood;
+}
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 26px;
+}
+
+.jumbotron {
+    background-color: antiquewhite;
+}
+  
+
+  .card-header{
+    font-family: 'Dancing Script', cursive;
+    background-color: powderblue;
+
+  }
+
+  .bg-dark {
+      background-color: brown;
+      color: antiquewhite;
+  }
+  
