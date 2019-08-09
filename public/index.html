@@ -28,7 +28,7 @@
         <img src="assets/images/pets.png" alt="pets" class="img-fluid rounded float-right">
       <h1 class="display-3">It's Raining Cats, Dogs & Birds</h1>
       <p class="lead">Everyone deserves to find the right pet.</p>
-      <a href="#" class="btn btn-info btn-lg">Create a Pet Profile</a> or <a href="#">sign-in</a>
+      <a href="#" class="btn btn-info btn-lg">View Owners Looking for Matches!</a>
     </header>
 
 
@@ -41,19 +41,54 @@
             <h3 class="card-text">Tell us about your pet!</h3>
             <form id="petForm">
                 <!-- Pet Profile form -->
+                <div class="form-group">
+                  <label for="exampleInputOwner">Owner Name</label>
+                  <input type="ownerName" class="form-control" id="exampleInputOwner" aria-describedby="ownerHelp" placeholder="Enter owner">
+                </div>
+
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Pet Name</label>
-                      <input type="email" class="form-control" id="petName" aria-describedby="PetName" placeholder="Enter your pet's name">
+                      <label for="exampleInputPet">Pet Name</label>
+                      <input type="pet" class="form-control" id="petName" aria-describedby="PetName" placeholder="Enter your pet's name">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
+
+                    
                     <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-custom dropdown-toggle" type="button" id="userPetType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Your Pet: Cat, Dog, or Bird?
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userPetType">
+                          <button class="dropdown-item" value="cat" type="button">Cat</button>
+                          <button class="dropdown-item" value="dog" type="button">Dog</button>
+                          <button class="dropdown-item" value="bird" type="button">Bird</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-custom dropdown-toggle" type="button" id="userPetPreference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Pet Match: Cat, Dog, or Bird?
+                        </button>
+                        <!-- Logic from https://mdbootstrap.com/docs/jquery/forms/multiselect/ git -->
+                        <!-- Once we are ready for a multiple select, we'll enter in "mdb-select mdb-form" inside the class for the below div -->
+                        <div class="dropdown-menu" aria-labelledby="userPetPreferenceType">
+                          <button class="dropdown-item" value="cat" type="button">Cat</button>
+                          <button class="dropdown-item" value="dog" type="button">Dog</button>
+                          <button class="dropdown-item" value="bird" type="button">Bird</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
                       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
+                    </div> -->
                   
                     <button type="submit" class="btn btn-info">Submit</button>
                   </form>
