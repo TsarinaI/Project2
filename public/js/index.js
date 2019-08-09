@@ -1,3 +1,8 @@
+// Lines 2-4 are for index.html multiple select
+// $(document).ready(function() {
+//   $('.mdb-select').materialSelect();
+//   });
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");

@@ -51,9 +51,36 @@
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
                     <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-custom dropdown-toggle" type="button" id="userPetType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Your Pet: Cat, Dog, or Bird?
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userPetType">
+                          <button class="dropdown-item" type="button">Cat</button>
+                          <button class="dropdown-item" type="button">Dog</button>
+                          <button class="dropdown-item" type="button">Bird</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-custom dropdown-toggle" type="button" id="userPetPreference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Pet Match: Cat, Dog, or Bird?
+                        </button>
+                        <!-- Logic from https://mdbootstrap.com/docs/jquery/forms/multiselect/ git -->
+                        <div class="dropdown-menu mdb-select mdb-form" aria-labelledby="userPetType">
+                          <button class="dropdown-item" type="button">Cat</button>
+                          <button class="dropdown-item" type="button">Dog</button>
+                          <button class="dropdown-item" type="button">Bird</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group">
                       <label for="exampleInputPassword1">Password</label>
                       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
+                    </div> -->
                   
                     <button type="submit" class="btn btn-info">Submit</button>
                   </form>
