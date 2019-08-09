@@ -28,7 +28,7 @@
         <img src="assets/images/pets.png" alt="pets" class="img-fluid rounded float-right">
       <h1 class="display-3">It's Raining Cats, Dogs & Birds</h1>
       <p class="lead">Everyone deserves to find the right pet.</p>
-      <a href="#" class="btn btn-info btn-lg">Create a Pet Profile</a> or <a href="#">sign-in</a>
+      <a href="#" class="btn btn-info btn-lg">View Owners Looking for Matches!</a>
     </header>
 
 
@@ -42,17 +42,16 @@
             <form id="petForm">
                 <!-- Pet Profile form -->
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Owner Name</label>
-                  <input type="ownerName" class="form-control" id="exampleInputOwner1" aria-describedby="ownerHelp" placeholder="Enter owner">
-                  <small id="ownerHelp" class="form-text text-muted">What's your name?</small>
+                  <label for="exampleInputOwner">Owner Name</label>
+                  <input type="ownerName" class="form-control" id="exampleInputOwner" aria-describedby="ownerHelp" placeholder="Enter owner">
                 </div>
 
                     <div class="form-group">
-                      <label for="exampleInputEmail1">Pet Name</label>
-                      <input type="email" class="form-control" id="petName" aria-describedby="PetName" placeholder="Enter your pet's name">
+                      <label for="exampleInputPet">Pet Name</label>
+                      <input type="pet" class="form-control" id="petName" aria-describedby="PetName" placeholder="Enter your pet's name">
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail">Email address</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                       </div>
@@ -64,9 +63,9 @@
                           Your Pet: Cat, Dog, or Bird?
                         </button>
                         <div class="dropdown-menu" aria-labelledby="userPetType">
-                          <button class="dropdown-item" id="userPetCat" type="button">Cat</button>
-                          <button class="dropdown-item" id="userPetDog" type="button">Dog</button>
-                          <button class="dropdown-item" id="userPetBird" type="button">Bird</button>
+                          <button class="dropdown-item" value="cat" type="button">Cat</button>
+                          <button class="dropdown-item" value="dog" type="button">Dog</button>
+                          <button class="dropdown-item" value="bird" type="button">Bird</button>
                         </div>
                       </div>
                     </div>
@@ -78,10 +77,10 @@
                         </button>
                         <!-- Logic from https://mdbootstrap.com/docs/jquery/forms/multiselect/ git -->
                         <!-- Once we are ready for a multiple select, we'll enter in "mdb-select mdb-form" inside the class for the below div -->
-                        <div class="dropdown-menu" aria-labelledby="userPetType">
-                          <button class="dropdown-item" id="userPetPrefCat" type="button">Cat</button>
-                          <button class="dropdown-item" id="userPetPrefDog" type="button">Dog</button>
-                          <button class="dropdown-item" id="userPetPrefBird" type="button">Bird</button>
+                        <div class="dropdown-menu" aria-labelledby="userPetPreferenceType">
+                          <button class="dropdown-item" value="cat" type="button">Cat</button>
+                          <button class="dropdown-item" value="dog" type="button">Dog</button>
+                          <button class="dropdown-item" value="bird" type="button">Bird</button>
                         </div>
                       </div>
                     </div>
