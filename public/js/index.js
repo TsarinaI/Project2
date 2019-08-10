@@ -1,103 +1,116 @@
-// Lines 3-4 are for index.html multiple select
-//   $('.mdb-select').materialSelect();
-//   });
+$(document).ready(function() {
+  // Lines 3-4 are for index.html multiple select
+  //   $('.mdb-select').materialSelect();
+  //   });
 
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+  // Get references to page elements
+  var $owner = $("#petInputOwner");
+  var $name = $("#petName");
+  var $email = $("#petInputEmail1");
+  var $type = $("#petType");
+  var $submitBtn = $("#submit");
+  var $petList = $("#pet-list");
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function (example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function () {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function (id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
-
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function () {
-  API.getExamples().then(function (data) {
-    var $examples = data.map(function (example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function (event) {
-  event.preventDefault();
-
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  // The API object contains methods for each kind of request we'll make
+  var API = {
+    savePet: function(pet) {
+      return $.ajax({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/pets",
+        data: JSON.stringify(pet)
+      });
+    },
+    getPet: function() {
+      return $.ajax({
+        url: "api/pets",
+        type: "GET"
+      });
+    }
+    // ,
+    // deletePet: function(id) {
+    //   return $.ajax({
+    //     url: "api/pet/" + id,
+    //     type: "DELETE"
+    //   });
+    // }
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+  // refreshPets gets new pets from the db and repopulates the list
+  var refreshPets = function() {
+    API.getPet().then(function(data) {
+      var $pets = data.map(function(pet) {
+        var $p = $("<p>")
+          .text(pet.text)
+          .attr("/pet/" + pet.id);
 
-  API.saveExample(example).then(function () {
-    refreshExamples();
+        var $li = $("<li>")
+          .attr({
+            class: "list-group-item",
+            "data-id": pet.id
+          })
+          .append($p);
+
+        var $button = $("<button>")
+          .addClass("btn btn-danger float-right delete")
+          .text("ｘ");
+
+        $li.append($button);
+
+        return $li;
+      });
+
+      $petList.empty();
+      $petList.append($pets);
+    });
+  };
+
+  // handleFormSubmit is called whenever we submit a new pet
+  // Save the new pet to the db and refresh the list
+  var handleFormSubmit = function(event) {
+    event.preventDefault();
+    console.log("click");
+    //Profile inputs need ids from our html
+    var pet = {
+      owner: $owner.val().trim(),
+      petName: $name.val().trim(),
+      email: $email.val().trim(),
+      petType: $type.val().trim()
+    };
+
+    if (!(pet.owner && pet.petName && pet.email)) {
+      alert("You left a field blank");
+      return;
+    }
+    console.log(pet);
+    API.savePet(pet).then(function() {
+      refreshPets();
+    });
+
+    $owner.val("");
+    $name.val("");
+    $email.val("");
+  };
+
+  // handleDeleteBtnClick is called when an pet's delete button is clicked
+  // Remove the pet from the db and refresh the list
+  // var handleDeleteBtnClick = function() {
+  //   var idToDelete = $(this)
+  //     .parent()
+  //     .attr("data-id");
+
+  //   API.deletePet(idToDelete).then(function() {
+  //     refreshPets();
+  //   });
+  // };
+
+  // Add event listeners to the submit and delete buttons
+  $submitBtn.on("click", handleFormSubmit);
+  // $petList.on("click", ".delete", handleDeleteBtnClick);
+  $("#userPetTypes .dropdown-item").on("click", function() {
+    $("#petType").val($(this).text());
+    $("#userPetType").text($(this).text());
   });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function () {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
-
-  API.deleteExample(idToDelete).then(function () {
-    refreshExamples();
-  });
-};
-
-// Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+});
