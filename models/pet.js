@@ -1,9 +1,9 @@
 module.exports = function(sequelize, DataTypes) {
-  var Profile = sequelize.define("pet_tinder", {
+  var Pet = sequelize.define("Pet", {
     owner: DataTypes.STRING,
     petName: DataTypes.STRING,
     email: DataTypes.STRING,
     petType: DataTypes.STRING
   });
-  return Profile;
+  return Pet;
 };
