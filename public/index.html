@@ -1,0 +1,140 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>It's Raining Cats, Dogs & Birds</title>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Lobster&display=swap" rel="stylesheet"> 
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- Custom styles-->
+  <link href="assets/css/styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+        <img src="assets/images/pets.png" alt="pets" class="img-fluid rounded float-right">
+      <h1 class="display-3">It's Raining Cats, Dogs & Birds</h1>
+      <p class="lead">Everyone deserves to find the right pet.</p>
+      <a href="#" class="btn btn-info btn-lg">View Owners Looking for Matches!</a>
+    </header>
+
+
+    <!-- Pet profile section -->
+    <div class="row text-center">
+      <div class="col-lg-6 col-md-6">
+        <div class="card h-100">
+          <div class="card-body" id="petProfile">
+            <h2 class="card-header">Pet Profile</h2>
+            <h3 class="card-text">Tell us about your pet!</h3>
+            <form id="petForm">
+                <!-- Pet Profile form -->
+                <div class="form-group">
+                  <label for="exampleInputOwner">Owner Name</label>
+                  <input type="ownerName" class="form-control" id="exampleInputOwner" aria-describedby="ownerHelp" placeholder="Enter owner">
+                </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputPet">Pet Name</label>
+                      <input type="pet" class="form-control" id="petName" aria-describedby="PetName" placeholder="Enter your pet's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                      </div>
+
+                    
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-custom dropdown-toggle" type="button" id="userPetType" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Your Pet: Cat, Dog, or Bird?
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="userPetType">
+                          <button class="dropdown-item" value="cat" type="button">Cat</button>
+                          <button class="dropdown-item" value="dog" type="button">Dog</button>
+                          <button class="dropdown-item" value="bird" type="button">Bird</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="dropdown">
+                        <button class="btn btn-custom dropdown-toggle" type="button" id="userPetPreference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Pet Match: Cat, Dog, or Bird?
+                        </button>
+                        <!-- Logic from https://mdbootstrap.com/docs/jquery/forms/multiselect/ git -->
+                        <!-- Once we are ready for a multiple select, we'll enter in "mdb-select mdb-form" inside the class for the below div -->
+                        <div class="dropdown-menu" aria-labelledby="userPetPreferenceType">
+                          <button class="dropdown-item" value="cat" type="button">Cat</button>
+                          <button class="dropdown-item" value="dog" type="button">Dog</button>
+                          <button class="dropdown-item" value="bird" type="button">Bird</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div> -->
+                  
+                    <button type="submit" class="btn btn-info">Submit</button>
+                  </form>
+        </div>
+          <div class="card-footer" id="photo">
+            <a href="#" class="btn btn-info">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <div class="card h-100">
+          <div class="card-body" id="matchProfile">
+            <h2 class="card-header">Sample Profile</h2>
+            <img class="img-fluid" src="assets/images/dog-sample.jpg" alt="sample image">   
+            <p class="card-text">Meet Steven.</p>
+            
+            <p>Steven is a super cute 9 week old pup who can’t wait to find his forever home! This little guy LOVES to play! He is being fostered in the home of one of our volunteers In Montgomery County, PA. 
+            To adopt from us, please fill out our application at graperescue.com the application fee is $25 and our adoption fee is $250.</p>
+        </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-info">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">View Your Profile</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

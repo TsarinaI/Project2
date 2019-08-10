@@ -1,3 +1,7 @@
+// Lines 3-4 are for index.html multiple select
+//   $('.mdb-select').materialSelect();
+//   });
+
 // Get references to page elements
 var $owner = $("#exampleInputOwner");
 var $name = $("#petName");
@@ -64,7 +68,7 @@ var API = {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 //Profile inputs need ids from our html
   var profile = {
