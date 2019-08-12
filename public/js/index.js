@@ -9,7 +9,8 @@ $(document).ready(function() {
   var $email = $("#petInputEmail1");
   var $type = $("#petType");
   var $submitBtn = $("#submit");
-  var $petList = $("#pet-list");
+  // var $petList = $("#pet-list");
+  var $profiles = $("#allpro");
 
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -41,29 +42,52 @@ $(document).ready(function() {
   // refreshPets gets new pets from the db and repopulates the list
   var refreshPets = function() {
     API.getPet().then(function(data) {
+      var viewAll = $("#profiles");
       var $pets = data.map(function(pet) {
-        var $p = $("<p>")
-          .text(pet.text)
-          .attr("/pet/" + pet.id);
+        var $table = $("<table>");
+        // caption
+        $table
+          // thead
+          .append("<thead>")
+          .addClass("thead-dark")
+          .children("thead")
+          .append("<tr />")
+          .children("tr")
+          .append(
+            "<th scope='col'>Owner Name</th><th>Pet Name</th><th>Email Address</th><th>Pet Type</th>"
+          );
 
-        var $li = $("<li>")
-          .attr({
-            class: "list-group-item",
-            "data-id": pet.id
-          })
-          .append($p);
+        //tbody
+        var $tbody = $table.append("<tbody />").children("tbody");
 
-        var $button = $("<button>")
-          .addClass("btn btn-danger float-right delete")
-          .text("ｘ");
+        // add row
+        $tbody
+          .append("<tr />")
+          .children("tr:last")
+          .append("<td>" + pet.owner + "</td>")
+          .append("<td>" + pet.petName + "</td>")
+          .append("<td>" + pet.email + "</td>")
+          .append("<td>" + pet.petType + "</td>");
 
-        $li.append($button);
+        // add table to dom
+        $table.appendTo("#profiles");
+        // var $p = $("<p>").text(
+        //   pet.owner + " " + pet.petName + " " + pet.email + " " + pet.petType
+        // );
+        // // .attr("/pet/" + pet.id);
 
-        return $li;
+        // var $li = $("<li>")
+        //   .attr({
+        //     class: "list-group-item",
+        //     "data-id": pet.id
+        //   })
+        //   .append($p);
+
+        // return $li;
       });
 
-      $petList.empty();
-      $petList.append($pets);
+      // $petList.empty();
+      viewAll.prepend($pets);
     });
   };
 
@@ -108,6 +132,7 @@ $(document).ready(function() {
 
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
+  $profiles.on("click", refreshPets);
   // $petList.on("click", ".delete", handleDeleteBtnClick);
   $("#userPetTypes .dropdown-item").on("click", function() {
     $("#petType").val($(this).text());

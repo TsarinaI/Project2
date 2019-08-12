@@ -28,14 +28,14 @@
         <img src="assets/images/pets.png" alt="pets" class="img-fluid rounded float-right">
       <h1 class="display-3">It's Raining Cats, Dogs & Birds</h1>
       <p class="lead">Everyone deserves to find the right pet.</p>
-      <a href="#" class="btn btn-info btn-lg">View Owners Looking for Matches!</a>
+      <!-- <a href="#" class="btn btn-info btn-lg">View Owners Looking for Matches!</a> -->
     </header>
 
 
     <!-- Pet profile section -->
     <div class="row text-center">
       <div class="col-lg-6 col-md-6">
-        <div class="card h-100">
+        <div class="card h-100"  id="procard" >
           <div class="card-body" id="petProfile">
             <h2 class="card-header">Pet Profile</h2>
             <h3 class="card-text">Tell us about your pet!</h3>
@@ -80,7 +80,7 @@
                   </form>
         </div>
           <div class="card-footer" id="photo">
-            <a href="#" class="btn btn-info">Find Out More!</a>
+            <a id="allpro" class="btn btn-info">View Owners Looking for Matches!</a>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@
       <div class="col-lg-6 col-md-6">
         <div class="card h-100">
           <div class="card-body" id="matchProfile">
-            <h2 class="card-header">Sample Profile</h2>
+            <h2 class="card-header">Matches</h2>
             <img class="img-fluid" src="assets/images/dog-sample.jpg" alt="sample image">   
             <p class="card-text">Meet Steven.</p>
             
@@ -110,12 +110,16 @@
   <!-- /.container -->
 
   <!-- Footer -->
-  <footer class="py-5 bg-dark">
+
     <div class="container">
-      <p class="m-0 text-center text-white">View Your Profile</p>
+      <div class="row">
+        <div class="col-lg-12" id="profiles">
+
+        </div>
+      </div>
     </div>
     <!-- /.container -->
-  </footer>
+
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
