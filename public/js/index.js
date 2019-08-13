@@ -113,9 +113,10 @@ $(document).ready(function() {
       refreshPets();
     });
 
-    $owner.val("");
-    $name.val("");
-    $email.val("");
+    // $owner.val("");
+    // $name.val("");
+    // $email.val("");
+    $("#emptydiv").empty();
   };
 
   // handleDeleteBtnClick is called when an pet's delete button is clicked
