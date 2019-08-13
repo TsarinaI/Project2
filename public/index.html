@@ -9,7 +9,11 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
+<<<<<<< HEAD
     <title>It's Raining Cats, Dogs & Birds</title>
+=======
+    <title>It's Raining Cats, Dogs & Birds Font</title>
+>>>>>>> master
     <link
       href="https://fonts.googleapis.com/css?family=Dancing+Script|Lobster&display=swap"
       rel="stylesheet"
@@ -23,6 +27,15 @@
       crossorigin="anonymous"
     />
 
+<<<<<<< HEAD
+=======
+    <!-- Animate CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+    />
+
+>>>>>>> master
     <!-- Custom styles-->
     <link href="assets/css/styles.css" rel="stylesheet" />
   </head>
@@ -37,16 +50,25 @@
           alt="pets"
           class="img-fluid rounded float-right"
         />
+<<<<<<< HEAD
         <h1 class="display-3">It's Raining Cats, Dogs & Birds</h1>
         <p class="lead">Everyone deserves to find the right pet.</p>
         <a href="#" class="btn btn-info btn-lg"
           >View Owners Looking for Matches!</a
         >
+=======
+        <h1 class="display-3 animated bounceInDown">
+          It's Raining Cats, Dogs & Birds
+        </h1>
+        <p class="lead">Everyone deserves to find the right pet.</p>
+        <!-- <a href="#" class="btn btn-info btn-lg">View Owners Looking for Matches!</a> -->
+>>>>>>> master
       </header>
 
       <!-- Pet profile section -->
       <div class="row text-center">
         <div class="col-lg-6 col-md-6">
+<<<<<<< HEAD
           <div class="card h-100">
             <div class="card-body" id="petProfile">
               <h2 class="card-header">Pet Profile</h2>
@@ -131,6 +153,101 @@
             </div>
             <div class="card-footer" id="photo">
               <a href="#" class="btn btn-info">Find Out More!</a>
+=======
+          <div class="card h-100" id="procard">
+            <div class="card-body" id="petProfile">
+              <h2 class="card-header animated bounceInDown">Pet Profile</h2>
+              <div id="emptydiv">
+                <h3 class="card-text">Tell us about your pet!</h3>
+                <form id="petForm">
+                  <!-- Pet Profile form -->
+                  <div class="form-group">
+                    <label for="petInputOwner">Owner Name</label>
+                    <input
+                      type="ownerName"
+                      class="form-control"
+                      id="petInputOwner"
+                      aria-describedby="ownerHelp"
+                      placeholder="Enter owner"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="petInputPet">Pet Name</label>
+                    <input
+                      type="pet"
+                      class="form-control"
+                      id="petName"
+                      aria-describedby="PetName"
+                      placeholder="Enter your pet's name"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="petInputEmail">Email address</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="petInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email"
+                    />
+                    <small id="emailHelp" class="form-text text-muted"
+                      >We'll never share your email with anyone else.</small
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <div class="dropdown">
+                      <input type="hidden" id="petType" />
+                      <button
+                        class="btn btn-custom dropdown-toggle"
+                        type="button"
+                        id="userPetType"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Your Pet: Cat, Dog, or Bird?
+                      </button>
+                      <div
+                        class="dropdown-menu"
+                        id="userPetTypes"
+                        aria-labelledby="userPetType"
+                      >
+                        <button class="dropdown-item" value="cat" type="button">
+                          Cat
+                        </button>
+                        <button class="dropdown-item" value="dog" type="button">
+                          Dog
+                        </button>
+                        <button
+                          class="dropdown-item"
+                          value="bird"
+                          type="button"
+                        >
+                          Bird
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div class="form-group">
+                        <label for="petInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="petInputPassword1" placeholder="Password">
+                      </div> -->
+
+                  <button type="submit" id="submit" class="btn btn-info">
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <div class="card-footer" id="photo">
+              <a id="allpro" class="btn btn-info"
+                >View Owners Looking for Matches!</a
+              >
+>>>>>>> master
             </div>
           </div>
         </div>
@@ -138,18 +255,35 @@
         <div class="col-lg-6 col-md-6">
           <div class="card h-100">
             <div class="card-body" id="matchProfile">
+<<<<<<< HEAD
               <h2 class="card-header">Sample Profile</h2>
+=======
+              <h2 class="card-header">Matches</h2>
+>>>>>>> master
               <img
                 class="img-fluid"
                 src="assets/images/dog-sample.jpg"
                 alt="sample image"
               />
+<<<<<<< HEAD
               <p class="card-text" id="petDateName"></p>
 
               <p class="card-text" id="petDateSpecies"></p>
 
               <p id="petDateDescription"></p>
               <p class="card-test" id="petfinderURL"></p>
+=======
+              <p class="card-text">Meet Steven.</p>
+
+              <p>
+                Steven is a super cute 9 week old pup who can’t wait to find his
+                forever home! This little guy LOVES to play! He is being
+                fostered in the home of one of our volunteers In Montgomery
+                County, PA. To adopt from us, please fill out our application at
+                graperescue.com the application fee is $25 and our adoption fee
+                is $250.
+              </p>
+>>>>>>> master
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-info">Find Out More!</a>
@@ -158,6 +292,7 @@
         </div>
       </div>
       <!-- /.row -->
+<<<<<<< HEAD
     </div>
     <!-- /.container -->
 
@@ -169,6 +304,22 @@
       <!-- /.container -->
     </footer>
 
+=======
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12" id="profiles">
+
+        </div>
+      </div>
+    </div>
+    <!-- /.container -->
+
+>>>>>>> master
     <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script
