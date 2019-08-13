@@ -110,9 +110,6 @@ $(document).ready(function() {
   $submitBtn.on("click", handleFormSubmit);
   // $petList.on("click", ".delete", handleDeleteBtnClick);
   $("#userPetTypes .dropdown-item").on("click", function() {
-    // Plays sound when button is clicked
-    var audio = new Audio("assets/images/dogbark3.mp3");
-    $("#submit").click(() => audio.play());
     $("#petType").val($(this).text());
     $("#userPetType").text($(this).text());
   });
