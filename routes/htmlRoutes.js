@@ -1,27 +1,21 @@
-var db = require("../models");
+// With a little help from Sequelize activty 13
+// Dependencies
+// =============================================================
+var path = require("path");
 
+// Routes
+// =============================================================
 module.exports = function(app) {
-  // Load index page
-  // app.get("/", function(req, res) {
-  //   db.Pet.findAll({}).then(function(dbExamples) {
-  //     res.render("index", {
-  //       msg: "Welcome!",
-  //       examples: dbExamples
-  //     });
-  //   });
-  // });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Pet.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
+  // Each of the below routes just handles the HTML page that the user gets sent to.
+
+  // index route loads view.html
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "..public/index.html"));
   });
 
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
+  app.get("/users", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/database.html"));
   });
+
 };
