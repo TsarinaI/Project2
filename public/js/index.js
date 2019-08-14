@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  // Lines 3-4 are for index.html multiple select
-  //   $('.mdb-select').materialSelect();
-  //   });
 
   // Get references to page elements
   var $owner = $("#petInputOwner");
@@ -10,7 +7,7 @@ $(document).ready(function() {
   var $type = $("#petType");
   var $submitBtn = $("#submit");
   // var $petList = $("#pet-list");
-  var $profiles = $("#allpro");
+  // var $profiles = $("#allpro");
 
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -30,28 +27,8 @@ $(document).ready(function() {
         type: "GET"
       });
     }
-    // ,
-    // deletePet: function(id) {
-    //   return $.ajax({
-    //     url: "api/pet/" + id,
-    //     type: "DELETE"
-    //   });
-    // }
   };
 
-
-    var $table = $("<table>").addClass("table");
-  $table
-    // thead
-    .append("<thead>")
-    .children("thead")
-    .append("<tr />")
-    .children("tr")
-    .append(
-      "<th>Pet Owner</th><th>Pet Name</th><th>Pet Type</th>"
-    );
-
-  $table.appendTo("#profiles");
 
   // refreshPets gets new pets from the db and repopulates the list
   var refreshPets = function() {
@@ -108,22 +85,10 @@ $(document).ready(function() {
     // $("#emptydiv").empty();
   };
 
-  // handleDeleteBtnClick is called when an pet's delete button is clicked
-  // Remove the pet from the db and refresh the list
-  // var handleDeleteBtnClick = function() {
-  //   var idToDelete = $(this)
-  //     .parent()
-  //     .attr("data-id");
-
-  //   API.deletePet(idToDelete).then(function() {
-  //     refreshPets();
-  //   });
-  // };
 
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
-  $profiles.on("click", refreshPets);
-  // $petList.on("click", ".delete", handleDeleteBtnClick);
+  // $profiles.on("click", refreshPets);
   $("#userPetTypes .dropdown-item").on("click", function() {
     $("#petType").val($(this).text());
     $("#userPetType").text($(this).text());
