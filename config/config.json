@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "ti675317",
+    "password": "",
     "database": "pet_tinder",
     "host": "localhost",
     "dialect": "mysql"
