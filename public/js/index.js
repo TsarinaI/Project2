@@ -95,6 +95,10 @@ $(document).ready(function() {
   // Save the new pet to the db and refresh the list
   var handleFormSubmit = function(event) {
     event.preventDefault();
+    $.ajax({ url: "/api/petfinder", method: "GET" }).then(function(animals) {
+      console.log("animals: " + animals);
+    });
+
     console.log("click");
     //Profile inputs need ids from our html
     var pet = {

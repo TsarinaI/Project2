@@ -20,7 +20,7 @@ module.exports = function(app) {
 
   app.get("/api/petfinder", function(req, res) {
     var animals = tokenCall();
-    res.JSON(animals);
+    res.json(animals);
     function tokenCall() {
       var apiKey = process.env.API_KEY;
       var apiSecret = process.env.API_SECRET;
