@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  // Lines 3-4 are for index.html multiple select
-  //   $('.mdb-select').materialSelect();
-  //   });
 
   // Get references to page elements
   var $owner = $("#petInputOwner");
@@ -10,7 +7,7 @@ $(document).ready(function() {
   var $type = $("#petType");
   var $submitBtn = $("#submit");
   // var $petList = $("#pet-list");
-  var $profiles = $("#allpro");
+  // var $profiles = $("#allpro");
 
   // The API object contains methods for each kind of request we'll make
   var API = {
@@ -30,33 +27,14 @@ $(document).ready(function() {
         type: "GET"
       });
     }
-    // ,
-    // deletePet: function(id) {
-    //   return $.ajax({
-    //     url: "api/pet/" + id,
-    //     type: "DELETE"
-    //   });
-    // }
   };
+
 
   // refreshPets gets new pets from the db and repopulates the list
   var refreshPets = function() {
     API.getPet().then(function(data) {
-      var viewAll = $("#profiles");
+      // var viewAll = $("#profiles");
       var $pets = data.map(function(pet) {
-        var $table = $("<table>");
-        // caption
-        $table
-          // thead
-          .append("<thead>")
-          .addClass("thead-dark")
-          .children("thead")
-          .append("<tr />")
-          .children("tr")
-          .append(
-            "<th scope='col'>Owner Name</th><th>Pet Name</th><th>Email Address</th><th>Pet Type</th>"
-          );
-
         //tbody
         var $tbody = $table.append("<tbody />").children("tbody");
 
@@ -66,30 +44,18 @@ $(document).ready(function() {
           .children("tr:last")
           .append("<td>" + pet.owner + "</td>")
           .append("<td>" + pet.petName + "</td>")
-          .append("<td>" + pet.email + "</td>")
           .append("<td>" + pet.petType + "</td>");
-
-        // add table to dom
-        $table.appendTo("#profiles");
-        // var $p = $("<p>").text(
-        //   pet.owner + " " + pet.petName + " " + pet.email + " " + pet.petType
-        // );
-        // // .attr("/pet/" + pet.id);
-
-        // var $li = $("<li>")
-        //   .attr({
-        //     class: "list-group-item",
-        //     "data-id": pet.id
-        //   })
-        //   .append($p);
-
-        // return $li;
       });
 
       // $petList.empty();
       viewAll.prepend($pets);
     });
   };
+
+  const capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
 
   // handleFormSubmit is called whenever we submit a new pet
   // Save the new pet to the db and refresh the list
@@ -114,8 +80,8 @@ $(document).ready(function() {
     console.log("click");
     //Profile inputs need ids from our html
     var pet = {
-      owner: $owner.val().trim(),
-      petName: $name.val().trim(),
+      owner: capitalize($owner.val().trim()),
+      petName: capitalize($name.val().trim()),
       email: $email.val().trim(),
       petType: $type.val().trim()
     };
@@ -129,28 +95,16 @@ $(document).ready(function() {
       refreshPets();
     });
 
-    // $owner.val("");
-    // $name.val("");
-    // $email.val("");
-    $("#emptydiv").empty();
+    $owner.val("");
+    $name.val("");
+    $email.val("");
+    // $("#emptydiv").empty();
   };
 
-  // handleDeleteBtnClick is called when an pet's delete button is clicked
-  // Remove the pet from the db and refresh the list
-  // var handleDeleteBtnClick = function() {
-  //   var idToDelete = $(this)
-  //     .parent()
-  //     .attr("data-id");
-
-  //   API.deletePet(idToDelete).then(function() {
-  //     refreshPets();
-  //   });
-  // };
 
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
-  $profiles.on("click", refreshPets);
-  // $petList.on("click", ".delete", handleDeleteBtnClick);
+  // $profiles.on("click", refreshPets);
   $("#userPetTypes .dropdown-item").on("click", function() {
     $("#petType").val($(this).text());
     $("#userPetType").text($(this).text());
