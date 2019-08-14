@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "deddeh13",
     "database": "pet_tinder",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "hahaha8282",
+    "password": "deddeh13",
     "database": "pet_tinder",
     "host": "localhost",
     "dialect": "mysql",
