@@ -18,9 +18,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/petfinder", function(req, res) {
+  app.post("/api/petfinder", function(req, res) {
+    var testtVar;
     var animals = tokenCall();
-    res.JSON(animals);
+    // console.log("animals!!!!" + animals);
+    // res.json(animals);
+
     function tokenCall() {
       var apiKey = process.env.API_KEY;
       var apiSecret = process.env.API_SECRET;
@@ -35,7 +38,9 @@ module.exports = function(app) {
         })
         .then(response => {
           var bearerToken = response.data.access_token;
-          return apiCall(bearerToken);
+          // var testVar = apiCall(bearerToken);
+          apiCall(bearerToken);
+          // console.log(testVar);
         })
         .catch(error => {
           console.error(error);
@@ -52,8 +57,10 @@ module.exports = function(app) {
         }
       })
         .then(response => {
-          console.log(response.data);
-          return response.data.animals;
+          // console.log(response.data);
+          testtVar = response.data.animals;
+          console.log(testtVar);
+          res.json(testtVar);
         })
         .catch(error => {
           console.error(error);

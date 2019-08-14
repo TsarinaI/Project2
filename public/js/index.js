@@ -61,6 +61,22 @@ $(document).ready(function() {
   // Save the new pet to the db and refresh the list
   var handleFormSubmit = function(event) {
     event.preventDefault();
+    $.ajax({ url: "/api/petfinder", method: "POST" }).then(function(animals) {
+      console.log("animals: ", animals);
+
+      $("#petDateName").append(JSON.stringify(animals[0].name));
+
+      console.log(animals[0].species);
+      $("#petDateSpecies").append(JSON.stringify(animals[0].species));
+
+      // console.log(response.animals[0].photos[0].medium);
+      console.log(animals[0].url);
+      $("#petfinderURL").append(JSON.stringify(animals[0].url));
+
+      console.log(animals[0].description);
+      $("#petDateDescription").append(JSON.stringify(animals[0].description));
+    });
+
     console.log("click");
     //Profile inputs need ids from our html
     var pet = {
