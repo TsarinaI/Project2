@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "hahaha8282",
-=======
-    "password": "deddeh13",
->>>>>>> master
+    "password": "",
     "database": "pet_tinder",
     "host": "localhost",
     "dialect": "mysql"
