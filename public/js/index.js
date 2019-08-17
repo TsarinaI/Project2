@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   // Get references to page elements
   var $owner = $("#petInputOwner");
   var $name = $("#petName");
@@ -29,7 +28,6 @@ $(document).ready(function() {
     }
   };
 
-
   // refreshPets gets new pets from the db and repopulates the list
   var refreshPets = function() {
     API.getPet().then(function(data) {
@@ -52,10 +50,10 @@ $(document).ready(function() {
     });
   };
 
-  const capitalize = (s) => {
-    if (typeof s !== 'string') return ''
-    return s.charAt(0).toUpperCase() + s.slice(1)
-  }
+  const capitalize = s => {
+    if (typeof s !== "string") return "";
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
 
   // handleFormSubmit is called whenever we submit a new pet
   // Save the new pet to the db and refresh the list
@@ -64,17 +62,18 @@ $(document).ready(function() {
     $.ajax({ url: "/api/petfinder", method: "POST" }).then(function(animals) {
       console.log("animals: ", animals);
 
-      $("#petDateName").append(JSON.stringify(animals[0].name));
+      console.log(animals[0].name);
+      // $("#petfinderName").append(JSON.stringify(animals[0].name));
 
       console.log(animals[0].species);
-      $("#petDateSpecies").append(JSON.stringify(animals[0].species));
+      // $("#petfinderSpecies").append(JSON.stringify(animals[0].species));
 
       // console.log(response.animals[0].photos[0].medium);
       console.log(animals[0].url);
-      $("#petfinderURL").append(JSON.stringify(animals[0].url));
+      // $("#petfinderURL").append(JSON.stringify(animals[0].url));
 
       console.log(animals[0].description);
-      $("#petDateDescription").append(JSON.stringify(animals[0].description));
+      $("#petfinderDescription").append(JSON.stringify(animals[0].description));
     });
 
     console.log("click");
@@ -100,7 +99,6 @@ $(document).ready(function() {
     $email.val("");
     // $("#emptydiv").empty();
   };
-
 
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
