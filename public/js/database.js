@@ -13,23 +13,21 @@ $(document).ready(function() {
       });
     }
   };
-  var $profiles = $("#allpro");
-
+  //   var $profiles = $("#allpro");
+  var $table = $("<table>").addClass("table");
+  $table
+    // thead
+    .append("<thead>")
+    .children("thead")
+    .append("<tr />")
+    .children("tr")
+    .append("<th>Pet Owner</th><th>Pet Name</th><th>Pet Type</th>");
+  $table.appendTo("#profiles");
   var goUsers = function() {
     API.getPet().then(function(data) {
       var viewAll = $("#profiles");
       var $pets = data.map(function(pet) {
-        var $table = $("<table>").addClass("table");
-        $table
-          // thead
-          .append("<thead>")
-          .children("thead")
-          .append("<tr />")
-          .children("tr")
-          .append("<th>Pet Owner</th><th>Pet Name</th><th>Pet Type</th>");
-        //tbody
         var $tbody = $table.append("<tbody />").children("tbody");
-
         // add row
         $tbody
           .append("<tr />")
@@ -38,13 +36,10 @@ $(document).ready(function() {
           .append("<td>" + pet.petName + "</td>")
           .append("<td>" + pet.petType + "</td>");
       });
-
       // $petList.empty();
-      viewAll.prepend($pets);
+      viewAll.append($pets);
     });
   };
-
   goUsers();
-
-  $profiles.on("click", goUsers);
+  //   $profiles.on("click", goUsers);
 });

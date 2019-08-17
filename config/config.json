@@ -8,7 +8,7 @@
   },
   "test": {
     "username": "root",
-    "password": "deddeh13",
+    "password": "",
     "database": "pet_tinder",
     "host": "localhost",
     "dialect": "mysql",
